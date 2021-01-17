@@ -66,13 +66,80 @@ class SinglyLinkedList:
         print(res)
         return res
 
+    def max_val(self):
+        temp_max = int(self.head.data)
+        current = self.head
+        while current.next:
+            temp_max = max(temp_max, int(current.next.data))
+            current = current.next
+        print(temp_max)
+        return temp_max
+
+    def search_recursive(self, key):
+        current = self.head
+
+        def search_helper(current, key):
+            if current is None:
+                return False
+            if key == current.data:
+                return True
+            return search_helper(current.next, key)
+
+        res = search_helper(current, key)
+        print(res)
+        return res
+
+    def unshift(self, data):
+        #          create a new node
+        newNode = Node(data)
+        newNode.next = self.head
+        self.head = newNode
+        self.length += 1
+
+    def insert(self, index, data):
+        newNode = Node(data)
+        current = self.head
+        for _ in range(index - 1):
+            current = current.next
+        print(f"ajibola {current.data}")
+        future = current.next
+        current.next = newNode
+        newNode.next = future
+
+    def sorted_insert(self, value):
+        newNode = Node(value)
+        current = self.head
+        # to insert at zeroth index
+        if newNode.data <= current.data:
+            newNode.next = self.head
+            self.head = newNode
+            return
+            # to insert at final index
+        if newNode.data >= self.tail.data:
+            self.tail.next = newNode
+            self.tail = newNode
+            return
+            # to insert within the linked list
+        while current.next:
+            prev = current
+            current = current.next
+            if newNode.data < current.data:
+                prev.next = newNode
+                newNode.next = current
+                return
+
 
 aj1 = SinglyLinkedList()
-aj1.push("111")
-aj1.push("111")
-aj1.push("111")
-aj1.push("222")
+aj1.push(5)
+aj1.push(11)
+aj1.push(111)
+aj1.push(222)
+aj1.unshift(0)
+aj1.insert(1, 3)
+aj1.sorted_insert(187)
 print(aj1.printList())
 print(aj1.printList_Recursive())
 aj1.my_count()
 aj1.add_elements()
+aj1.max_val()
+
