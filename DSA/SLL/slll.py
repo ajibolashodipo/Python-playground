@@ -40,11 +40,39 @@ class SinglyLinkedList:
         helperFunction(current)
         return container
 
+    def my_count(self):
+        current = self.head
+
+        def counter_helper(current):
+            if current is None:
+                return 0
+            else:
+                return counter_helper(current.next) + 1
+
+        count = counter_helper(current)
+        print(count)
+        return count
+
+    def add_elements(self):
+        current = self.head
+
+        def add_helper(current):
+            if current is None:
+                return 0
+            else:
+                return add_helper(current.next) + int(current.data)
+
+        res = add_helper(current)
+        print(res)
+        return res
+
 
 aj1 = SinglyLinkedList()
-aj1.push("ajibolaaa")
-aj1.push("ajibolaaa")
+aj1.push("111")
+aj1.push("111")
 aj1.push("111")
 aj1.push("222")
 print(aj1.printList())
 print(aj1.printList_Recursive())
+aj1.my_count()
+aj1.add_elements()
