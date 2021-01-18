@@ -154,6 +154,29 @@ class SinglyLinkedList:
                 current.next = forward.next
                 forward = forward.next
 
+    def reverse(self):
+        # using 3 sliding pointers that move together. quite easy to understand. you've got this
+        f_next = self.head
+        curr = None
+        prev = None
+        while f_next:
+            prev = curr
+            curr = f_next
+            f_next = f_next.next
+            curr.next = prev
+        self.head = curr
+
+    def reverse_recursion(self):
+        # quite tough at first; requires some patience
+        def reverse_helper(q, p):
+            if p is not None:
+                reverse_helper(p, p.next)
+                p.next = q
+            else:
+                self.head = q
+
+        return reverse_helper(None, self.head)
+
 
 aj1 = SinglyLinkedList()
 aj1.push(111)
@@ -163,8 +186,10 @@ aj1.push(222)
 aj1.unshift(455)
 aj1.insert(1, 3)
 aj1.sorted_insert(187)
+
 aj1.remove_duplicates()
 print(aj1.printList())
+aj1.reverse_recursion()
 print(aj1.printList_Recursive())
 aj1.my_count()
 aj1.add_elements()
