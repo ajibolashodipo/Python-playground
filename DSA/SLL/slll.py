@@ -109,17 +109,18 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         newNode = Node(value)
         current = self.head
+
         # to insert at zeroth index
         if newNode.data <= current.data:
             newNode.next = self.head
             self.head = newNode
             return
-            # to insert at final index
+        # to insert at final index
         if newNode.data >= self.tail.data:
             self.tail.next = newNode
             self.tail = newNode
             return
-            # to insert within the linked list
+        # to insert within the linked list
         while current.next:
             prev = current
             current = current.next
@@ -128,18 +129,44 @@ class SinglyLinkedList:
                 newNode.next = current
                 return
 
+    def is_sorted(self):
+        current = self.head
+
+        while current.next:
+            prev = current
+            current = current.next
+            if prev.data > current.data:
+                print("list is not sorted")
+                return False
+        print("list is sorted")
+        return True
+
+    def remove_duplicates(self):
+
+        current = self.head
+        forward = current.next
+        while forward:
+            if current.data != forward.data:
+                current = forward
+                forward = forward.next
+
+            else:
+                current.next = forward.next
+                forward = forward.next
+
 
 aj1 = SinglyLinkedList()
-aj1.push(5)
-aj1.push(11)
+aj1.push(111)
+aj1.push(111)
 aj1.push(111)
 aj1.push(222)
-aj1.unshift(0)
+aj1.unshift(455)
 aj1.insert(1, 3)
 aj1.sorted_insert(187)
+aj1.remove_duplicates()
 print(aj1.printList())
 print(aj1.printList_Recursive())
 aj1.my_count()
 aj1.add_elements()
 aj1.max_val()
-
+aj1.is_sorted()
