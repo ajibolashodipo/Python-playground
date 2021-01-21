@@ -168,6 +168,7 @@ class SinglyLinkedList:
 
     def reverse_recursion(self):
         # quite tough at first; requires some patience
+        # actual link reversal is performed while recursive calls are returning
         def reverse_helper(q, p):
             if p is not None:
                 reverse_helper(p, p.next)
@@ -176,6 +177,14 @@ class SinglyLinkedList:
                 self.head = q
 
         return reverse_helper(None, self.head)
+
+    def concatenate(self, second):
+        # using the tail pointer
+        self.tail.next = second.head
+        self.tail = second.tail
+        # or you could just start from the head. takes longer computational time though. and is probably needless as
+        # this is the whole point of the tail pointer in the first place
+
 
 
 aj1 = SinglyLinkedList()
@@ -189,9 +198,19 @@ aj1.sorted_insert(187)
 
 aj1.remove_duplicates()
 print(aj1.printList())
-aj1.reverse_recursion()
+# aj1.reverse_recursion()
 print(aj1.printList_Recursive())
 aj1.my_count()
 aj1.add_elements()
 aj1.max_val()
 aj1.is_sorted()
+
+# second linked list for concatenation
+second_ll = SinglyLinkedList()
+second_ll.push(1)
+second_ll.push(2)
+second_ll.push(3)
+
+print(aj1.printList_Recursive())
+aj1.concatenate(second_ll)
+print(aj1.printList_Recursive())
