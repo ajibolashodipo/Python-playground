@@ -20,6 +20,10 @@ class SinglyLinkedList:
             self.tail.next = newNode
             self.tail = newNode
 
+            # for circular linked list. could be wrong btw
+            # self.tail.next = self.head
+            # self.head = newNode
+
     def printList(self):
         current = self.head
         container = []
@@ -185,11 +189,47 @@ class SinglyLinkedList:
         # or you could just start from the head. takes longer computational time though. and is probably needless as
         # this is the whole point of the tail pointer in the first place
 
+    def is_loop_floyd(self):
+        # here we use two pointers. one fast one and one slow one. if they meet at any point, means a loop exists
+        p = self.head
+        q = self.head
+
+        # if any of the below are None, it means there is no loop in the linked list as a tail points to None.
+        while p and q and q.next:
+            p = p.next
+            q = q.next.next
+
+            if p == q:
+                return True
+
+        return False
+
+    def is_loop_2(self):
+        s = set()
+        temp = self.head
+        while temp:
+            if temp in s:
+                return True
+            s.add(temp)
+            print(temp)
+            temp = temp.next
+        return False
+
+    def display_circular(self):
+        first = self.head
+        print(first.data)
+        arr = [first.data]
+        curr = first.next
+        while curr != first:
+            arr.append(curr.data)
+            curr = curr.next
+        print(arr)
+        return
 
 
 aj1 = SinglyLinkedList()
-aj1.push(111)
-aj1.push(111)
+aj1.push(1)
+aj1.push(5)
 aj1.push(111)
 aj1.push(222)
 aj1.unshift(455)
@@ -206,11 +246,22 @@ aj1.max_val()
 aj1.is_sorted()
 
 # second linked list for concatenation
-second_ll = SinglyLinkedList()
-second_ll.push(1)
-second_ll.push(2)
-second_ll.push(3)
+# second_ll = SinglyLinkedList()
+# second_ll.push(1)
+# second_ll.push(2)
+# second_ll.push(3)
 
 print(aj1.printList_Recursive())
-aj1.concatenate(second_ll)
+# aj1.concatenate(second_ll)
 print(aj1.printList_Recursive())
+print(aj1.is_loop_2())
+
+
+tobi = SinglyLinkedList()
+tobi.push(10)
+tobi.push(1)
+tobi.push(2)
+tobi.push(3)
+tobi.push(4)
+# tobi.printList()
+tobi.display_circular()
