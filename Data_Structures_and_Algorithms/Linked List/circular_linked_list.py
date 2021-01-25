@@ -46,6 +46,32 @@ class CircularLinkedList:
             curr.next = newNode
             newNode.next = self.head
 
+    def delete(self, index):
+        if index == 0:
+            old_head = self.head
+            new_head = self.head.next
+            curr = self.head
+            while curr.next != self.head:
+                curr = curr.next
+            # assign last's node's next to new head
+            curr.next = new_head
+            self.head = new_head
+
+        # this block is redundant cos if index==1, the loop would simply not execute. which is exactly what we want
+        # for this case.
+
+        # elif index == 1:
+        #     curr = self.head
+        #     future = curr.next.next
+        #     curr.next = future
+        else:
+            curr = self.head
+            for _ in range(index - 1):
+                curr = curr.next
+            # current value of curr at this point is the node before to the node to be deleted
+            future = curr.next.next
+            curr.next = future
+
     def print_list(self):
         first = self.head
         print(first.data)
@@ -66,4 +92,8 @@ cll.append(5)
 cll.prepend(1)
 cll.prepend(9)
 cll.prepend(10)
+
+cll.delete(0)
+cll.delete(1)
+cll.delete(2)
 cll.print_list()
