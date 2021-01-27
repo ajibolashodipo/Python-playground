@@ -52,6 +52,29 @@ class DoublyLinkedList:
             if future:
                 future.prev = newNode
 
+    def delete(self, index):
+        if index == 1:
+            old_head = self.head
+            self.head = old_head.next
+            self.head.prev = None
+            self.length -= 1
+        else:
+            curr = self.head
+            # trace it. index-2 makes sense. you've got this
+            for _ in range(index - 2):
+                curr = curr.next
+            # value of curr after the loop is on the node before the target
+            target = curr.next
+            future = target.next
+
+            curr.next = future
+            # this conditional helps us look ahead
+            if future:
+                future.prev = curr
+            self.length -=1
+
+    def reverse(self):
+        pass
 
 dll = DoublyLinkedList()
 dll.push(2)
@@ -62,4 +85,6 @@ dll.insert(1, 8)
 dll.insert(1, 5)
 dll.insert(1, 8)
 dll.insert(6, 228)
+# dll.delete(1)
+dll.delete(2)
 dll.print_list()
