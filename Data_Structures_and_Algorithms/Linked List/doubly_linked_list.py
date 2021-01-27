@@ -75,7 +75,7 @@ class DoublyLinkedList:
 
     def reverse(self):
         curr = self.head
-        # what we are doing essentially is to traverse the node and swap the pointers.
+        # what i am doing essentially is to traverse the node and swap the pointers.
         # you must understand though, that to move to the next node after this exercise requires you to use node.prev
         # as opposed to node.next cos pointers have been swapped prior, you get. :))
 
