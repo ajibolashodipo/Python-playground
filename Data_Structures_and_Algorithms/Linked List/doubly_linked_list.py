@@ -71,10 +71,33 @@ class DoublyLinkedList:
             # this conditional helps us look ahead
             if future:
                 future.prev = curr
-            self.length -=1
+            self.length -= 1
 
     def reverse(self):
-        pass
+        curr = self.head
+        # what we are doing essentially is to traverse the node and swap the pointers.
+        # you must understand though, that to move to the next node after this exercise requires you to use node.prev
+        # as opposed to node.next cos pointers have been swapped prior, you get. :))
+
+        while curr:
+            # swap the pointers
+            temp = curr.next
+            curr.next = curr.prev
+            curr.prev = temp
+
+            # advance using curr.prev
+            curr = curr.prev
+
+            # assign the head pointer to last node
+            # also note that we are using curr.next to look ahead as opposed to curr.prev cos these ahead nodes
+            # have not been affected by pointer swaps. so things work as they should
+
+            # we take extra steps in this conditional because the while loop condition only breaks when curr
+            # becomes None. However in this case, we need the current value to be valid and the next value to
+            # be None as this guarantees the rightful position of the head pointer
+            if curr is not None and curr.next is None:
+                self.head = curr
+
 
 dll = DoublyLinkedList()
 dll.push(2)
@@ -87,4 +110,6 @@ dll.insert(1, 8)
 dll.insert(6, 228)
 # dll.delete(1)
 dll.delete(2)
+dll.print_list()
+dll.reverse()
 dll.print_list()
