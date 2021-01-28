@@ -24,5 +24,5 @@ def hello(greeting, emoji=":)"):
 hello("hiiiii")
 
 # without the decorator,
-h1 = my_decorator(hello)
-h1("serendipithelloooo")
+# h1 = my_decorator(hello)
+# h1("serendipithelloooo")

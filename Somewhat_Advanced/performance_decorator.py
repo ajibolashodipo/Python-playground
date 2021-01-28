@@ -15,8 +15,18 @@ def performance(func):
 
 @performance
 def long_time():
-    for i in range(100000000 ):
+    print("1")
+    for i in range(10000000):
         i * 5
 
 
+@performance
+def long_time2():
+    print("2")
+    for i in list(range(10000000)):
+        i * 5
+
+
+# with generators we get to not hold things in memory. range is an example of generator
 long_time()
+long_time2()
