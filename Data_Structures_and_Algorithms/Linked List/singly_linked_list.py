@@ -184,7 +184,7 @@ class SinglyLinkedList:
 
     def concatenate(self, second):
         # using the tail pointer
-        self.tail.next = second.head
+        self.tail.next = second.top
         self.tail = second.tail
         # or you could just start from the head. takes longer computational time though. and is probably needless as
         # this is the whole point of the tail pointer in the first place
