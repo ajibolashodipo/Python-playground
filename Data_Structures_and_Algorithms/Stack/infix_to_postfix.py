@@ -17,7 +17,6 @@ def convert(infix):
     postfix = []
 
     for el in infix:
-        print(el)
         # check if current element is an operand
         if isOperand(el):
             postfix.append(el)
@@ -32,7 +31,6 @@ def convert(infix):
                     stack.append(el)
                 else:
                     # empty the stack since stack consists of members of equal or greater precedence
-                    print("sff" + str(stack))
                     while stack:
                         postfix.append(stack.pop())
 
