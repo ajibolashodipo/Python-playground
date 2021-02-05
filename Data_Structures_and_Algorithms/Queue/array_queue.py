@@ -22,7 +22,7 @@ class Queue:
 
     def enqueue(self, data):
         self.items.append(data)
-        self.length += 1
+        # self.length += 1
         self.rear += 1
 
     def dequeue(self):
@@ -31,7 +31,7 @@ class Queue:
         self.items[self.front] = None
         # then move it by one
         self.front += 1
-        self.length -= 1
+        # self.length -= 1
         print(dqd)
         return dqd
 
