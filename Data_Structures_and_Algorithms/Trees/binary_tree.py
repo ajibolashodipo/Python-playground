@@ -38,7 +38,52 @@ class BinaryTree:
         print(arr)
         return
 
+    def preorder_print_iterative(self):
+        curr = self.root
+        stack = []
+        # loop while current node is not null and length of stack is not empty
+        while curr or len(stack):
+            if curr:
+                # for preorder, print before going on left side
+                print(curr.value)
+                stack.append(curr)
+                curr = curr.left
+            else:
+                curr = stack.pop()
+                curr = curr.right
 
+    def inorder_print_iterative(self):
+        curr = self.root
+        stack = []
+        # loop while current node is not null and length of stack is not empty
+        while curr or len(stack):
+            if curr:
+                stack.append(curr)
+                curr = curr.left
+            else:
+                curr = stack.pop()
+                # for inorder, print before going on right side
+                print(curr.value)
+                curr = curr.right
+
+    def breadth_first_traversal(self):
+        # initialize the queue
+        queue = []
+        res = []
+        node = self.root
+        queue.append(node)
+        # while root is not empty
+        while queue:
+            # pop the foremost node out and print it's value
+            el = queue.pop(0)
+            res.append(el.value)
+            # check the left and right of said element and push those nodes (if they exist) into the queue
+            if el.left:
+                queue.append(el.left)
+            if el.right:
+                queue.append(el.right)
+        print(res)
+        return res
 
 
 tree = BinaryTree(6)
@@ -51,3 +96,5 @@ tree.root.right.right = Node(9)
 
 tree.preorder_print()
 tree.inorder_print()
+tree.preorder_print_iterative()
+tree.breadth_first_traversal()
