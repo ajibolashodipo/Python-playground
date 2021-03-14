@@ -34,8 +34,26 @@ class BinarySearchTree:
             else:
                 self._insert(data, curr.right)
 
+        # else condition checks for equality
         else:
             print("Value is already present in tree")
+
+    def insert_2(self, target):
+        def helper_insert(curr, target):
+            if curr is None:
+                newNode = Node(target)
+                return newNode
+                # return Node(target)
+            else:
+                if curr.data == target:
+                    return curr
+                elif curr.data < target:
+                    curr.right = helper_insert(curr.right, target)
+                else:
+                    curr.left = helper_insert(curr.left, target)
+            return curr
+
+        root=helper_insert(self.root, target)
 
     # recursive search
     def find(self, data):
@@ -102,12 +120,12 @@ class BinarySearchTree:
 
 
 bst = BinarySearchTree()
-bst.insert(8)
-bst.insert(1)
-bst.insert(6)
-bst.insert(13)
-bst.insert(10)
-bst.insert(16)
+bst.insert_2(8)
+bst.insert_2(1)
+bst.insert_2(6)
+bst.insert_2(13)
+bst.insert_2(10)
+bst.insert_2(16)
 bst.iterative_insert(8)
 bst.iterative_insert(1)
 bst.iterative_insert(6)
