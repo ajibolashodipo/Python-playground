@@ -76,10 +76,10 @@ class MaxHeap:
 
 maxHeap = MaxHeap()
 
-# array = [40, 90, 45, 23, 78, 3]
-# array = [40]
-# for i in array:
-#     maxHeap.insert(i)
+array = [40, 90, 45, 23, 78, 3]
+array = [40]
+for i in array:
+    maxHeap.insert(i)
 
 maxHeap.printHeap()
 maxHeap.removeRoot()
