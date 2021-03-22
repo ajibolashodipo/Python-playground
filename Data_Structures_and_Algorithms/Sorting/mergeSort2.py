@@ -41,4 +41,5 @@ def mergeSort(customList, l, r):
         merge(customList, l, m, r)
     return customList
 
+
 print(mergeSort([1, 4, 7, 3, 8, 105, 3, 6, 0, 3, 54, 7, 3, 6, 23], 0, 14))
