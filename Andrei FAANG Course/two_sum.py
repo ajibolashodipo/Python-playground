@@ -42,7 +42,7 @@ def optimizedTwoSum2(arr, t):
     dic = {}
 
     # so the idea is this yeah. say you've got a current value of 2. And your target is 5.
-    # you need to find if the hash map contains a 3 (5-2). if it does, return the index. else, add to hash map
+    # you need to find if the hash map ALREADY contains a 3 (5-2). if it does, return the index. else, add to hash map
     for i in range(len(arr)):
         val = arr[i]
         numToFind = t - val
