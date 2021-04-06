@@ -20,16 +20,11 @@ def almost_palindrome(s):
     right = len(s) - 1
     while left < right:
         if s[left] != s[right]:
-
             # returns true if any of the two broken off substrings go on to become full palindromes. else, returns false
             return valid_subPalindrome(s, left + 1, right) or valid_subPalindrome(s, left, right - 1)
         left += 1
         right -= 1
     return True
-
-
-
-
 
 
 # WRONG SOLUTION. DOESN'T COVER ALL POSSIBLE CASES. FIRST ATTEMPT.
