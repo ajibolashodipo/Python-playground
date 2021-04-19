@@ -1,31 +1,5 @@
-
-
-def mergeSort(arr, l, h):
-    # base case: if index of left is less than index of right, it means moer than one element exists.
-    # that's our cue to proceed
-    if l < h:
-
-        # find index of midpoint
-        mid = (l + h) // 2
-
-        # recurse using lower index and mid index
-        mergeSort(arr, l, mid)
-
-        # recurse using mid index to last index
-        mergeSort(arr, mid + 1, h)
-
-        # merge the two arrays (lower to mid) and (mid+1 to high)
-        merge(arr, l, mid, h)
-
-    return arr
-
-
-print(mergeSort([8, 2, 9, 6, 5, 3, 7, 4], 0, 7))
-
-
 # merge a single list made up of 2 individually sorted arrays
 def merge(arrA, l, mid, h):
-
     # copy content of original array
     arrC = arrA.copy()
 
@@ -60,6 +34,28 @@ def merge(arrA, l, mid, h):
 
     print(arrA)
     print("-----------------")
+
+
+def mergeSort(arr, l, h):
+    # base case: if index of left is less than index of right, it means moer than one element exists.
+    # that's our cue to proceed
+    if l < h:
+        # find index of midpoint
+        mid = (l + h) // 2
+
+        # recurse using lower index and mid index
+        mergeSort(arr, l, mid)
+
+        # recurse using mid index to last index
+        mergeSort(arr, mid + 1, h)
+
+        # merge the two arrays (lower to mid) and (mid+1 to high)
+        merge(arr, l, mid, h)
+
+    return arr
+
+
+print(mergeSort([8, 2, 9, 6, 5, 3, 7, 4], 0, 7))
 
 
 # merge([1, 3, 5, 7, 9, 11, 2, 4, 6, 8, 10, 12, 14, 16, 18], 0, 5, 14)
