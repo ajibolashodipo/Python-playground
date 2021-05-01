@@ -18,7 +18,9 @@ tree.root.left.right = Node(2)
 tree.root.right.right = Node(4)
 
 
-def rightSideView(t):
+# using BFS
+
+def rightSideViewBFS(t):
     queue = [t.root]
     result = []
 
@@ -52,4 +54,34 @@ def rightSideView(t):
     return result
 
 
-print(rightSideView(tree))
+def dfs(node, currLevel, res):
+    if not node:
+        return
+
+    # bespoke (R->L as opposed to L->R) dfs preorder to guarantee
+    # a traversal pattern that answers the question
+
+    # conditional that checks for unexplored new level
+    if currLevel >= len(res):
+        res.append(node.value)
+
+    # recurse through right children
+    if node.right:
+        dfs(node.right, currLevel + 1, res)
+
+    # recurse through left children
+    if node.left:
+        dfs(node.left, currLevel + 1, res)
+
+
+# using DFS
+def rightSideViewDFS(tree):
+    root = tree.root
+    result = []
+    # first call of recursive function
+    dfs(root, 0, result)
+    return result
+
+
+print(rightSideViewBFS(tree))
+print(rightSideViewDFS(tree))
