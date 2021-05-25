@@ -16,3 +16,14 @@ print(fib(7))
 print(fib(9))
 print(fib(10))
 print(fib(50))
+
+
+
+
+
+
+
+
+
+
+
