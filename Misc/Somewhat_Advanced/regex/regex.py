@@ -1,7 +1,7 @@
 import re
 import os
 
-os.chdir(r'C:\Users\AjibolaShodipo\PycharmProjects\PythonFromScratch\Somewhat_Advanced\regex')
+os.chdir(r'/Misc/Somewhat_Advanced/regex')
 
 # raw string: interprets a string literally
 
