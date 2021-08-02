@@ -1,5 +1,5 @@
 def gridTraveler(m, n, memo={}):
-    # check if arguments are in the memo
+    # check if arguments are  in the memo
     key = str(m) + "," + str(n)
     if key in memo:
         return memo[key]
