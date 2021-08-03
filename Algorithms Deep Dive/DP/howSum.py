@@ -28,4 +28,3 @@ def howSum(targetSum, numbers, memo={}):
 # print(howSum(7, [2, 4]))
 # print(howSum(7, [2, 4], memo={}))
 # print(howSum(8, [7,2, 3, 5],memo={}))
-print(howSum(300, [7, 14],memo={}))  # very slow, before memoization

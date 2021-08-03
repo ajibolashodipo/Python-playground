@@ -28,8 +28,4 @@ def canSum(targetSum, numbers, memo={}):
 
 # FIX: Pass new memo dict in each function call. Makes sense
 
-print(canSum(7, [2, 3], memo={}))
-print(canSum(7, [5, 3, 4, 7], memo={}))
-print(canSum(7, [2, 4], memo={}))
-print(canSum(8, [7,2, 3, 5],memo={}))
-print(canSum(300, [7, 14],memo={}))  # very slow
+
