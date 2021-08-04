@@ -12,6 +12,7 @@ def canSum(targetSum, numbers):
         if table[i] is True:
             for num in numbers:
                 if i + num <= targetSum:
+                    # update further values
                     table[i + num] = True
 
     print(table[targetSum])
