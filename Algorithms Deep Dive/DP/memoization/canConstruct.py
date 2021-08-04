@@ -20,4 +20,4 @@ def canConstruct(target, wordBank, memo={}):
     return False
 
 
-print(canConstruct("abcdef", ['ab', 'abc', 'cd', 'def', 'abcd']))
+
