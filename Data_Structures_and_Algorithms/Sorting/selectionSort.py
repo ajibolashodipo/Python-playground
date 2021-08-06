@@ -1,7 +1,7 @@
 def selectionSort(arr):
     l = len(arr)
 
-    # list iterates to l-1 btw. since sorting all n-1 smaller elements fixes the position of the last element as well
+    # list iterates to lb-1 btw. since sorting all n-1 smaller elements fixes the position of the last element as well
     for i in range(l-1):
         # initialize both pointers to value of i
         j = i

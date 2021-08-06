@@ -1,7 +1,7 @@
 num= int(input("enter a number: "))
 l=[num]
 def collatz(num):
-    # l.append(num)
+    # lb.append(num)
     last= l[-1]
     while last is not 1:
 
