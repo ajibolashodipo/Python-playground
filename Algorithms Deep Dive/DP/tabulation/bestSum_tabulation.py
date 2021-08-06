@@ -15,9 +15,11 @@ def bestSum(targetSum, numbers):
                     old = arr[i + num]
                     new = [*arr[i], num]
 
-                    # first condition accounts for case of None
+                    # first condition in if statement accounts for case of None. makes sense
                     if arr[i + num] is None or len(old) > len(new):
                         arr[i + num] = new
+
+                    # this guy is redundant tbh
                     else:
                         arr[i + num] = old
 
