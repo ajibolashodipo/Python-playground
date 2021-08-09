@@ -10,7 +10,7 @@ def hasPath(graph, src, dest, visited={}):
     visited[src] = True
 
     for neighbour in graph[src]:
-        if hasPath(graph, neighbour, dest):
+        if hasPath(graph, neighbour, dest, visited):
             return True
 
     return False
