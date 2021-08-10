@@ -30,7 +30,7 @@ def explore(graph, current, visited):
     for neighbour in graph[current]:
         explore(graph, neighbour, visited)
 
-    # getting to this point means the code is done traversing the current cluster
+    # getting to this point means the code is done traversing the current cluster of neighbours
     return True
 
 
