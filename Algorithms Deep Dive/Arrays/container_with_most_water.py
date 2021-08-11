@@ -31,7 +31,7 @@ def container(arr):
 
 # optimized solution:
 # go through array once. noting that
-# only the minimum of (arr[i], arr[j]) at any point defines whether or not the area changes
+# only the minimum of (grid[i], grid[j]) at any point defines whether or not the area changes
 
 # time O(n)
 # space O(1)

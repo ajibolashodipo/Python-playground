@@ -8,12 +8,12 @@ def partition(arr, lb, r):
     while left < right:
         print(left)
 
-        # move the lb pointer and stop when arr[lb]> pivot (STRICTLY GREATER). this means the condition of the whilr
+        # move the lb pointer and stop when grid[lb]> pivot (STRICTLY GREATER). this means the condition of the whilr
         # loop will be the opposite
         while arr[left] <= pivot:
             left += 1
 
-        # decrement the right pointer to check for the other condition i.e stop when arr[r] < pivot. this means the
+        # decrement the right pointer to check for the other condition i.e stop when grid[r] < pivot. this means the
         # condition of the while loop will be the opposite
         while arr[right] > pivot:
             right -= 1

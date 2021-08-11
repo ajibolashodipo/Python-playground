@@ -7,7 +7,7 @@ def brackets_to_remove(str):
 
         # check if stack is empty
         elif v == ")" and len(stack) == 0:
-            # delete specific index from track arr
+            # delete specific index from track grid
             # you shouldn't delete from the array as this will mess with the index.
             # replace with an empty string instead
             arr[k] = ""

@@ -4,7 +4,7 @@ def insertionSort(arr):
     # assume first element of array is sorted
     # hence our loop must begin from i=1  (as opposed to 0) through i= n.....remember there are just n-1 passes
     for i in range(1, l):
-        # get element value at arr[i]
+        # get element value at grid[i]
         x = arr[i]
 
         # initialize j from i-1. this makes sense since j cannot begin from i

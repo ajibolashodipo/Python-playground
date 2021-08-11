@@ -10,7 +10,7 @@ def partition(arr, left, right):
     while j < right:
         if arr[j] < pivot:
 
-            # swap arr[i] and arr[j] and move both indexes
+            # swap grid[i] and grid[j] and move both indexes
             swap(arr, i, j)
             j += 1
             i += 1
@@ -31,7 +31,7 @@ def quicksort(arr, left, right):
         quicksort(arr, left, partitionIndex - 1)
         quicksort(arr, partitionIndex + 1, right)
 
-    # return arr
+    # return grid
 
 
 # print(quicksort([1, 4, 7, 3, 8, 105, 3, 6, 0, 3, 54, 7, 3, 6, 23], 0, 14))

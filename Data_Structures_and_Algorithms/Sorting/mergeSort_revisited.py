@@ -34,7 +34,7 @@ def merge(arr, l, mid, r):
         temp.append(right[j])
         j += 1
 
-    # copy values from temp back into arr
+    # copy values from temp back into grid
     for i in range(len(temp)):
         arr[k] = temp[i]
         # print(k)
