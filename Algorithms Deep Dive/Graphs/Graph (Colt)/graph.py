@@ -36,6 +36,7 @@ class Graph:
         visited = {}
 
         def dfs(vertex):
+            # checks if node is empty: empty graph
             if not vertex:
                 return None
 
